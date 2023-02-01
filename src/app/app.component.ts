@@ -69,41 +69,27 @@ export class AppComponent {
     const secoundSt = secound < 10 ? "0" + secound : secound;
     const timeStamp = year + "" + monthSt + "" + daySt + "" + hourSt + "" + minutesSt + "" + secoundSt
 
-    const merchantId = "dev207328675986663817";
-    const sharedSecret = "pE2K6ONAy2";
-    const hashSquance1 = `${timeStamp}.${merchantId}.${this.sandboxForm.get("ORDER_ID")?.value}.${this.sandboxForm.get("AMOUNT")?.value}.${this.sandboxForm.get("CURRENCY")?.value}`;
-    const hash1 = sha1(hashSquance1);
-    const hashSquance2 = `${hash1}.${sharedSecret}`;
-    const hash2 = sha1(hashSquance2);
-    this.sandboxForm.patchValue({ "TIMESTAMP": timeStamp, "MERCHANT_ID": merchantId, SHA1HASH: hash2 });
+    // const merchantId = "dev207328675986663817";
+    // const sharedSecret = "pE2K6ONAy2";
+    // const hashSquance1 = `${timeStamp}.${merchantId}.${this.sandboxForm.get("ORDER_ID")?.value}.${this.sandboxForm.get("AMOUNT")?.value}.${this.sandboxForm.get("CURRENCY")?.value}`;
+    // const hash1 = sha1(hashSquance1);
+    // const hashSquance2 = `${hash1}.${sharedSecret}`;
+    // const hash2 = sha1(hashSquance2);
+    // this.sandboxForm.patchValue({ "TIMESTAMP": timeStamp, "MERCHANT_ID": merchantId, SHA1HASH: hash2 });
+    // console.log(this.sandboxForm.value);
 
-    console.log(this.sandboxForm.value);
-    let encoded = Object.entries(this.sandboxForm.value).map(([key, value]) => {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(value!);
-    });
-    let reqBody = encoded.join("&");
-    console.log(reqBody)
-    this.paymentGatwayService.setPaymentGatway(reqBody).subscribe(
+    // let encoded = Object.entries(this.sandboxForm.value).map(([key, value]) => {
+    //   return encodeURIComponent(key) + '=' + encodeURIComponent(value!);
+    // });
+    // let reqBody = encoded.join("&");
+    // console.log(reqBody)
+    this.paymentGatwayService.setPaymentGatway(this.sandboxForm.value).subscribe(
       response => {
         console.log(response);
       }, error => {
         console.log(error);
       }
     )
-    // let url = "https://pay.sandbox.realexpayments.com/pay";
-    // let xhr = new XMLHttpRequest();
-    // xhr.open("POST", url, true);
-    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    // // xhr.setRequestHeader("Access-Control-Allow-Headers", "*");
-    // xhr.responseType = '';
-    // xhr.onreadystatechange = () => {
-    //   if (xhr.readyState == XMLHttpRequest.DONE) {
-    //     console.log(xhr);
-
-    //   }
-    // };
-    // xhr.send(reqBody);
-
   }
 
 }
