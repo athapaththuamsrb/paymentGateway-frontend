@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class PaymentGatwayService {
 
-  url = "https://pay.sandbox.realexpayments.com/pay";
+  url = environment.baseUrl;
   constructor(private http: HttpClient) { }
   public setPaymentGatway(data: string): Observable<any> {
-    let options = {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded', "Access-Control-Allow-Origin": "*" }
-    };
-    console.log(options);
+    const option = { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
 
-    return this.http.post(this.url, data.toString(), options)
+    return this.http.post("https://pay.sandbox.realexpayments.com/pay", data, option)
   }
 }

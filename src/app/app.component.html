@@ -1,60 +1,52 @@
 <!-- <form action="https://pay.sandbox.realexpayments.com/pay" method="POST"> -->
-<form [formGroup]="sandboxForm">
-  <!-- TODO add add time stamp -->
-  <!-- <input type="hidden" name="TIMESTAMP" value="20230130170930" ngModel> -->
-
-  <input type="hidden" name="TIMESTAMP" formControlName="TIMESTAMP">
-
-  <!-- TODO add merchant id-->
-  <!-- <input type="hidden" name="MERCHANT_ID" value="dev207328675986663817" ngModel> -->
-  <input type="hidden" name="MERCHANT_ID" formControlName="MERCHANT_ID">
-
-  <input type="hidden" name="ACCOUNT" formControlName="ACCOUNT">
-  <input type="hidden" name="ORDER_ID" formControlName="ORDER_ID">
-  <input type="hidden" name="AMOUNT" formControlName="AMOUNT">
-  <input type="hidden" name="CURRENCY" formControlName="CURRENCY">
-  <input type="hidden" name="AUTO_SETTLE_FLAG" formControlName="AUTO_SETTLE_FLAG">
-  <input type="hidden" name="COMMENT1" formControlName="COMMENT1">
-  <input type="hidden" name="HPP_VERSION" formControlName="HPP_VERSION">
-  <input type="hidden" name="HPP_CHANNEL" formControlName="HPP_CHANNEL">
-  <input type="hidden" name="HPP_LANG" formControlName="HPP_LANG">
+<form action="https://pay.sandbox.realexpayments.com/pay" method="POST" target="iframe">
+  <input type="hidden" name="TIMESTAMP" value={{timeStamp}}>
+  <input type="hidden" name="MERCHANT_ID" value="dev207328675986663817">
+  <input type="hidden" name="ACCOUNT" value="internet">
+  <input type="hidden" name="ORDER_ID" value="N6qsk4kYRZihmPrTXWYS6g">
+  <input type="hidden" name="AMOUNT" value="1999">
+  <input type="hidden" name="CURRENCY" value="EUR">
+  <input type="hidden" name="AUTO_SETTLE_FLAG" value="1">
+  <input type="hidden" name="COMMENT1" value="Mobile Channel">
+  <input type="hidden" name="HPP_VERSION" value="2">
+  <input type="hidden" name="HPP_CHANNEL" value="ECOM">
+  <input type="hidden" name="HPP_LANG" value="en">
   <!-- Begin 3D Secure 2 Mandatory and Recommended Fields -->
-  <input type="hidden" name="HPP_CUSTOMER_EMAIL" formControlName="HPP_CUSTOMER_EMAIL">
-  <input type="hidden" name="HPP_CUSTOMER_PHONENUMBER_MOBILE" formControlName="HPP_CUSTOMER_PHONENUMBER_MOBILE">
-  <input type="hidden" name="HPP_BILLING_STREET1" formControlName="HPP_BILLING_STREET1">
-  <input type="hidden" name="HPP_BILLING_STREET2" formControlName="HPP_BILLING_STREET2">
-  <input type="hidden" name="HPP_BILLING_STREET3" formControlName="HPP_BILLING_STREET3">
-  <input type="hidden" name="HPP_BILLING_CITY" formControlName="HPP_BILLING_CITY">
-  <input type="hidden" name="HPP_BILLING_POSTALCODE" formControlName="HPP_BILLING_POSTALCODE">
-  <input type="hidden" name="HPP_BILLING_COUNTRY" formControlName="HPP_BILLING_COUNTRY">
-  <input type="hidden" name="HPP_SHIPPING_STREET1" formControlName="HPP_SHIPPING_STREET1">
-  <input type="hidden" name="HPP_SHIPPING_STREET2" formControlName="HPP_SHIPPING_STREET2">
-  <input type="hidden" name="HPP_SHIPPING_STREET3" formController="HPP_SHIPPING_STREET3">
-  <input type="hidden" name="HPP_SHIPPING_CITY" formController="HPP_SHIPPING_CITY">
-  <input type="hidden" name="HPP_SHIPPING_STATE" formController="HPP_SHIPPING_STATE">
-  <input type="hidden" name="HPP_SHIPPING_POSTALCODE" formController="HPP_SHIPPING_POSTALCODE">
-  <input type="hidden" name="HPP_SHIPPING_COUNTRY" formController="HPP_SHIPPING_COUNTRY" value="840">
-  <input type="hidden" name="HPP_ADDRESS_MATCH_INDICATOR" formController="HPP_ADDRESS_MATCH_INDICATOR" value="FALSE">
-  <input type="hidden" name="HPP_CHALLENGE_REQUEST_INDICATOR" formController="HPP_CHALLENGE_REQUEST_INDICATOR">
+  <input type="hidden" name="HPP_CUSTOMER_EMAIL" value="test@example.com">
+  <input type="hidden" name="HPP_CUSTOMER_PHONENUMBER_MOBILE" value="44|789456123">
+  <input type="hidden" name="HPP_BILLING_STREET1" value="Flat 123">
+  <input type="hidden" name="HPP_BILLING_STREET2" value="House 456">
+  <input type="hidden" name="HPP_BILLING_STREET3" value="Unit 4">
+  <input type="hidden" name="HPP_BILLING_CITY" value="Halifax">
+  <input type="hidden" name="HPP_BILLING_POSTALCODE" value="W5 9HR">
+  <input type="hidden" name="HPP_BILLING_COUNTRY" value="826">
+  <input type="hidden" name="HPP_SHIPPING_STREET1" value="Apartment 852">
+  <input type="hidden" name="HPP_SHIPPING_STREET2" value="Complex 741">
+  <input type="hidden" name="HPP_SHIPPING_STREET3" value="House 963">
+  <input type="hidden" name="HPP_SHIPPING_CITY" value="Chicago">
+  <input type="hidden" name="HPP_SHIPPING_STATE" value="IL">
+  <input type="hidden" name="HPP_SHIPPING_POSTALCODE" value="50001">
+  <input type="hidden" name="HPP_SHIPPING_COUNTRY" value="840">
+  <input type="hidden" name="HPP_ADDRESS_MATCH_INDICATOR" value="FALSE">
+  <input type="hidden" name="HPP_CHALLENGE_REQUEST_INDICATOR" value="NO_PREFERENCE">
   <!-- End 3D Secure 2 Mandatory and Recommended Fields -->
   <!-- Begin Fraud Management and Reconciliation Fields -->
-  <input type="hidden" name="BILLING_CODE" formController="BILLING_CODE">
-  <input type="hidden" name="BILLING_CO" formController="BILLING_CO">
-  <input type="hidden" name="SHIPPING_CODE" formController="SHIPPING_CODE">
-  <input type="hidden" name="SHIPPING_CO" formController="SHIPPING_CO">
-  <input type="hidden" name="CUST_NUM" formController="CUST_NUM">
-  <input type="hidden" name="VAR_REF" formController="VAR_REF">
-  <input type="hidden" name="PROD_ID" formController="PROD_ID">
+  <input type="hidden" name="BILLING_CODE" value="59|123">
+  <input type="hidden" name="BILLING_CO" value="GB">
+  <input type="hidden" name="SHIPPING_CODE" value="50001|Apartment 852">
+  <input type="hidden" name="SHIPPING_CO" value="US">
+  <input type="hidden" name="CUST_NUM" value="6e027928-c477-4689-a45f-4e138a1f208a">
+  <input type="hidden" name="VAR_REF" value="Acme Corporation">
+  <input type="hidden" name="PROD_ID" value="SKU1000054">
   <!-- End Fraud Management and Reconciliation Fields -->
-  <input type="hidden" name="MERCHANT_RESPONSE_URL" formController="MERCHANT_RESPONSE_URL">
-  <input type="hidden" name="CARD_PAYMENT_BUTTON" formController="CARD_PAYMENT_BUTTON">
-  <input type="hidden" name="CUSTOM_FIELD_NAME" formController="CUSTOM_FIELD_NAME">
-  <!-- <input type="hidden" name="SHA1HASH" value="f88f1ff2ade24a0c33ca0c38d5b8a60e030e5a85" ngModel> -->
-  <input type="hidden" name="SHA1HASH" formController="SHA1HASH" value="">
-  <input type="button" (click)="onSubmit()" value="Click To Pay">
+  <input type="hidden" name="MERCHANT_RESPONSE_URL" value="https://www.example.com/responseUrl">
+  <input type="hidden" name="CARD_PAYMENT_BUTTON" value="Pay Invoice">
+  <input type="hidden" name="CUSTOM_FIELD_NAME" value="Custom Field Data">
+  <input type="hidden" name="SHA1HASH" value={{sha1hash}}>
+  <input type="submit" value="Click To Pay">
 </form>
 <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="rxp-hpp.js"></script>
+<script src="assets/rxp-hpp.js"></script>
 <script>
   $(document).ready(function () {
     $.getJSON("sdkRequestEndpoint", function (jsonFromRequestEndpoint) {
