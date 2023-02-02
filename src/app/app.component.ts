@@ -85,7 +85,8 @@ export class AppComponent {
     // console.log(reqBody)
     this.paymentGatwayService.setPaymentGatway(this.sandboxForm.value).subscribe(
       response => {
-        console.log(response);
+        console.log(response.location);
+        window.location.href = response.location;
       }, error => {
         console.log(error);
       }
