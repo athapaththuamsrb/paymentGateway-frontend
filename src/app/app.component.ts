@@ -16,7 +16,7 @@ export class AppComponent {
     TIMESTAMP: new FormControl(""),
     MERCHANT_ID: new FormControl(""),
     ACCOUNT: new FormControl("internet"),
-    ORDER_ID: new FormControl("N6qsk4kYRZihmPrTXWYS6i"),
+    ORDER_ID: new FormControl("N6qsk4kYRZihmPrTXWYS6i"),//have to change every transaction
     AMOUNT: new FormControl("1999"),
     CURRENCY: new FormControl("EUR"),
     AUTO_SETTLE_FLAG: new FormControl("1"),
@@ -55,19 +55,19 @@ export class AppComponent {
   })
   constructor(private paymentGatwayService: PaymentGatwayService) { }
   onSubmit() {
-    const date = new Date();
-    const year = date.getUTCFullYear();
-    const month = date.getUTCMonth() + 1;
-    const monthSt = month < 10 ? "0" + month : month;
-    const day = date.getUTCDate();
-    const daySt = day < 10 ? "0" + day : day;
-    const hour = date.getUTCHours();
-    const hourSt = hour < 10 ? "0" + hour : hour;
-    const minutes = date.getUTCMinutes();
-    const minutesSt = minutes < 10 ? "0" + minutes : minutes;
-    const secound = date.getUTCSeconds();
-    const secoundSt = secound < 10 ? "0" + secound : secound;
-    const timeStamp = year + "" + monthSt + "" + daySt + "" + hourSt + "" + minutesSt + "" + secoundSt
+    // const date = new Date();
+    // const year = date.getUTCFullYear();
+    // const month = date.getUTCMonth() + 1;
+    // const monthSt = month < 10 ? "0" + month : month;
+    // const day = date.getUTCDate();
+    // const daySt = day < 10 ? "0" + day : day;
+    // const hour = date.getUTCHours();
+    // const hourSt = hour < 10 ? "0" + hour : hour;
+    // const minutes = date.getUTCMinutes();
+    // const minutesSt = minutes < 10 ? "0" + minutes : minutes;
+    // const secound = date.getUTCSeconds();
+    // const secoundSt = secound < 10 ? "0" + secound : secound;
+    // const timeStamp = year + "" + monthSt + "" + daySt + "" + hourSt + "" + minutesSt + "" + secoundSt
 
     // const merchantId = "dev207328675986663817";
     // const sharedSecret = "pE2K6ONAy2";
